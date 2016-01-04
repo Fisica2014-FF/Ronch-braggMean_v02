@@ -12,16 +12,38 @@
 using namespace std;
 
 
+// TODO!!!!
+//... include header files ...
 
-// PROGETTO PENSATO PER SALVARE TUTTE LE VARIE OPZIONI POSSIBILI
-int main() {
-	cout << "!!!Hello World!!!" << endl; // prints !!!Hello World!!!
-	std::unique_ptr<double> p(new double(4));
-	std::vector<double> v = {1,2,3};
+//... declare functions to read and dump events ...
 
+int main( int argc, char* argv[] ) {
+  /*
+  // open input file
+  //...
 
-	cout << *p;
-	cout << v[1];
-	return 0;
+  // create count objects
+  //....
+
+  // loop over events
+  const Event* ev;
+  while ( ... ) {
+    ...
+  }
+
+  // compute results
+  ...
+
+  // print results
+  ...
+  for ( ... )
+    ...
+
+  // print number of selected events
+  ...
+
+  */
+  return 0;
+
 }
 

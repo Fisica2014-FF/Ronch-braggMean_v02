@@ -71,11 +71,15 @@ const double* BraggStatistic::eRMS() const {
 }
 
 void BraggStatistic::compute() {
+	using namespace std;
+
 	// loop over points and compute mean and rms for each point
 	//For every point, calculate the mean and rms
 	for (unsigned i = 0; i < Event::minSize(); ++i) {
 		meanenergies[i] = sumenergies[i] / double(number_of_events_);
-		rmsenergies[i] = std::sqrt(sumsquares[i] / double(number_of_events_));
+		rmsenergies[i] = sqrt(
+				sumsquares[i] / double(number_of_events_) - pow(
+						sumenergies[i] / double(number_of_events_), 2));
 	}
 	return;
 }

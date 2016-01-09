@@ -10,7 +10,8 @@ BraggStatistic::BraggStatistic(int minEnergy, int maxEnergy) :
 				new unsigned[Event::maxSize()]), meanenergies(
 				new double[Event::maxSize()]), rmsenergies(
 				new double[Event::maxSize()]) {
-	// TODO scott meyers inizialization
+	// Scott Meyer's "Effective C++", item 12: Prefer initialization
+	// to assignment in constructors
 	// allocate arrays for sums, mean and rms: set size at min number of points
 	//...
 

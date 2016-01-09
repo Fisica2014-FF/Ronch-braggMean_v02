@@ -72,10 +72,13 @@ int main(int argc, char* argv[]) {
 		cout << endl;
 	}
 	// print number of selected events
-	//...
+	cout << endl << endl;
+	cout << "Number of events:" << endl;
+	cout << "background: " << background.nEvents() << endl;
+	cout << "africium: " << africium.nEvents() << endl;
+	cout << "asium: " << asium.nEvents() << endl;
+	cout << "australium: " << australium.nEvents() << endl;
 
-	delete ev;
 	return 0;
-
 }
 

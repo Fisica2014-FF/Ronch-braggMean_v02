@@ -64,6 +64,12 @@ int main(int argc, char* argv[]) {
 	cout << "1) MeanEnergy RMS 2) MeanEnergy RMS 3) "
 			"MeanEnergy RMS 4) MeanEnergy RMS" << endl;
 	for (unsigned i = 0; i < Event::minSize(); ++i) {
+
+		// I don't think there is need to modify something because
+		//  of the vectors.
+		// Others have used a temporary array/vector, so they had to
+		// modify his type, but i don't think that is a performance improvement
+		// since eMean and eRMS are surely inlined by the compiler.
 		printf("%4f %4f ", background.eMean()[i], background.eRMS()[i]);
 		printf("%4f %4f ", africium.eMean()[i], africium.eRMS()[i]);
 		printf("%4f %4f ", asium.eMean()[i], asium.eRMS()[i]);

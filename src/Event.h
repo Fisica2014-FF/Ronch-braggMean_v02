@@ -3,41 +3,49 @@
 
 class Event {
 
- public:
+public:
 
-  // create event with number "n"
-  Event( int n );
-  ~Event();
+	// create event with number "event_ID"
+	Event(int event_ID);
+	~Event();
 
-  // function to add a point
-  void add( int energyLoss );
+	// function to add a point
+	void add(int energyLoss);
 
-  // get event-specific informations:
-  //   event number
-  //   number of points in the event
-  //   energy for point "i"
-  int eventNumber() const;
-  unsigned int dataSize() const;
-  int energy( unsigned int i ) const;
+	// get event-specific informations:
+	//   event number
+	//   number of points in the event
+	//   energy for point "i"
+	int eventNumber() const;
+	unsigned int dataSize() const;
+	int energy(unsigned int i) const;
 
-  // get general informations
-  static unsigned int maxSize();
-  static unsigned int minSize();
+	// get general informations
+	static unsigned int maxSize();
+	static unsigned int minSize();
 
- private:
+	// C++11 standard syntax to prevent the compiler to automatically generate them;
+	Event(const Event& x) = delete;
+	Event& operator=(const Event& x) = delete;
 
-  // dummy copy constructor and assignment to prevent unadvertent copy
-  Event           ( const Event& x );
-  Event& operator=( const Event& x );
+private:
 
-  // shared variables to contain min and max number of points
-  ...
+	// dummy copy constructor and assignment to prevent unadvertent copy
+	// In C++11 better done through explicitly deleted functions, see above
+	// Event           ( const Event& x );
+	// Event& operator=( const Event& x );
 
-  // event-specific informations:
-  //   event number
-  //   number of points in the event
-  //   array with energies
-  ...
+	// shared variables to contain min and max number of points
+	static const unsigned MIN_POINTS;
+	static const unsigned MAX_POINTS;
+
+	// event-specific informations:
+	//   number of points in the event
+	//   array with energies
+	//...
+	int event_ID_;
+	unsigned numpoints_;
+	int* energies_;
 
 };
 

@@ -1,19 +1,30 @@
-... include header files ...
+#include <iostream>
+#include <fstream>
 
-const Event* read( std::ifstream& file ) {
+#include "../Event.h"
 
-  Event* ev;
-  int i;
-  // try to read input file
-  ...
+const Event* read(std::ifstream& file) {
 
-  // read number of points
-  ...
+	Event* ev;
+	int event_ID;
+	// try to read input file
+	if (file >> event_ID)
+		ev = new Event(event_ID);
+	else
+		return nullptr;
 
-  // read and store energy loss
-  ...
+	// read number of points
+	unsigned numpoints;
+	file >> numpoints;
 
-  return ev;
+	// read and store energy loss
+	int energy_loss;
+	for (unsigned i = 0; i < numpoints; ++i) {
+		file >> energy_loss;
+		ev->add(energy_loss);
+	}
+
+	return ev;
 
 }
 
